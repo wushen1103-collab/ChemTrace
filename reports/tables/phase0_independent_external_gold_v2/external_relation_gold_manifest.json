@@ -1,0 +1,24 @@
+{
+  "chembl_db": "data/external/chembl_36.db",
+  "generated_at_utc": "2026-09-10T04:36:27+00:00",
+  "hard_negative_bank": "reports/tables/phase0_reviewer_supplements/hard_negative_pair_bank.csv",
+  "hard_negative_bank_sha256": "df6313d1759a5007334ec1f24eef92dd89c79f9c9b3a91f0f4cd0948a8aec2bf",
+  "independent_registry_negative_support": 500,
+  "independent_registry_negative_typed_calls": 0,
+  "independent_registry_negatives_sha256": "a3bc508c2fb080db7df39c34e2f1ac8065911b1df2737bb16e86d62a59dff1a3",
+  "pairs_sha256": "97e14faff27e4a3476d331052b81fb82947c09e130c02644d6a667b5dfac4721",
+  "schema": "chemtrace.external_relation_gold.v2",
+  "selection_boundary": {
+    "exact": "ChEMBL36 Standard InChIKey self-identity sanity set",
+    "parent": "ChEMBL36 molecule_hierarchy",
+    "stereo": "same ChEMBL36 Standard InChI after removing /b,/t,/m,/s layers, different nonempty explicit stereo-layer signatures; no ChemTrace relation key used for inclusion",
+    "tautomer": "Tautobase curated pairs"
+  },
+  "supports": {
+    "exact": 1000,
+    "none": 1000,
+    "parent": 3000,
+    "stereo": 2000,
+    "tautomer": 1675
+  }
+}

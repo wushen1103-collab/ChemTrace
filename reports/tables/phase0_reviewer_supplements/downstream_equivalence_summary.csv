@@ -1,0 +1,11 @@
+epsilon,relation,cells,practical_equivalence,positive_exceeds_epsilon,negative_exceeds_epsilon,inconclusive
+0.01,exact,24,0,0,0,24
+0.01,parent,6,0,0,0,6
+0.01,random,18,2,0,0,16
+0.01,stereo,16,3,0,0,13
+0.01,tautomer,1,0,0,0,1
+0.02,exact,24,2,0,0,22
+0.02,parent,6,0,0,0,6
+0.02,random,18,2,0,0,16
+0.02,stereo,16,3,0,0,13
+0.02,tautomer,1,0,0,0,1

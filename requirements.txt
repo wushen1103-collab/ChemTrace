@@ -1,0 +1,10 @@
+numpy==2.2.6
+pandas==2.3.3
+scikit-learn==1.7.2
+pyarrow==25.0.1
+tqdm==4.70.0
+requests==2.34.2
+joblib==1.5.3
+rdkit==2026.3.5
+tabulate==0.10.0
+jsonschema==4.26.0

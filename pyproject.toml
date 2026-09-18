@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chemtrace"
+version = "0.1.0"
+description = "Relation-typed provenance audits for molecular pretraining corpora"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = [
+  "numpy==2.2.6",
+  "pandas==2.3.3",
+  "scikit-learn==1.7.2",
+  "pyarrow==25.0.1",
+  "tqdm==4.70.0",
+  "requests==2.34.2",
+  "joblib==1.5.3",
+  "rdkit==2026.3.5",
+  "tabulate==0.10.0",
+  "jsonschema==4.26.0",
+]
+
+[project.optional-dependencies]
+train = ["torch==2.13.0"]
+test = ["pytest>=8.3,<9"]
+
+[tool.setuptools]
+packages = ["chemtrace"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,14 @@
+method,method_group,source_type,anchor,note,is_proposed,relation_typed,certificate_ready,minhash_size
+raw_smiles_identity,classic,self_rerun,classic exact string matching,raw SMILES string equality,False,False,False,
+canonical_smiles_identity,classic,self_rerun,classic canonical decontamination,RDKit canonical SMILES equality,False,False,False,
+inchikey_full_identity,direct_mechanism,self_rerun,standard InChIKey identity,full standard InChIKey equality,False,False,False,
+inchikey_connectivity_identity,direct_mechanism,self_rerun,standard InChIKey connectivity,first InChIKey block equality,False,False,False,
+smiles_shingle_minhash,direct_mechanism,adapted_rerun,MinHash text fingerprinting,"128-hash canonical-SMILES 3-gram MinHash, threshold 0.50",False,False,False,128
+morgan_minhash,direct_mechanism,adapted_rerun,MinHash molecular fingerprinting,"configurable-size Morgan-bit MinHash, threshold 0.80",False,False,False,128
+morgan_ecfp80,recent_same_task,self_rerun,cheminformatics nearest-neighbor baseline,Morgan ECFP Tanimoto >= 0.80,False,False,False,
+murcko_scaffold,recent_same_task,self_rerun,scaffold leakage baseline,Bemis-Murcko scaffold equality,False,False,False,
+datasail_similarity_cluster,recent_same_task,adapted_rerun,DataSAIL-style leakage-aware split control,same scaffold or Morgan ECFP Tanimoto >= 0.70,False,False,False,
+lohi_high_similarity_split,recent_same_task,adapted_rerun,LoHi-style high-similarity split stress,Morgan ECFP Tanimoto >= 0.60,False,False,False,
+chemical_science_audit_bundle,recent_same_task,adapted_rerun,Chemical Science 2026 benchmark-audit style,"canonical, InChIKey-connectivity, scaffold, or ECFP80 hit",False,False,False,
+tdc_polaris_curation_bundle,recent_same_task,adapted_rerun,TDC/Polaris-style benchmark curation bundle,"canonical, full InChIKey, scaffold, or ECFP80 hit",False,False,False,
+chemtrace_relation_lattice,proposed,self_rerun,ChemTrace,relation-typed parent/stereo/tautomer/canonical lattice,True,True,True,

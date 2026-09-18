@@ -1,0 +1,2 @@
+task,positive_relations,negative_relations,tp,fp,fn,tn,precision,recall,f1,false_positive_rate
+independent_relation_gold,"exact,parent,stereo,tautomer","family,none",7444,0,231,1000,1.0,0.9699022801302931,0.9847212117203519,0.0

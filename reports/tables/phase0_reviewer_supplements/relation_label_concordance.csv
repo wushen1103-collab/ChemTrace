@@ -1,0 +1,4 @@
+gold_relation,n_pairs,pairs_with_shared_assay,total_shared_assays,mean_label_agreement,median_abs_pchembl_diff
+exact,233,145,1591,0.99947391688771,0.0
+parent,233,0,0,,
+stereo,233,59,202,0.8889945808832007,0.4800000000000004

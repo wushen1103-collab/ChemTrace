@@ -1,0 +1,28 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Regenerated experiment state
+artifacts/
+reproduced/
+logs/
+*.log
+*.pid
+
+# User-supplied third-party corpora
+data/external/
+external/
+
+# Local release bundles
+*.zip
+*.tgz
+!data/paper_inputs.tgz
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

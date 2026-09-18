@@ -1,0 +1,2 @@
+n_molecules,parent_tautomer_disagreement_rate,stereo_parent_disagreement_rate,canonical_non_idempotent_rate,parent_non_idempotent_rate,stereo_non_idempotent_rate,tautomer_non_idempotent_rate,terminology_recommendation
+50000,0.0015,0.00022,0.0,0.00014,8e-05,0.00242,relation-typed provenance graph

@@ -1,0 +1,7 @@
+source,relation_group,cells,lattice_changed_recall_mean,best_exact_changed_recall_mean,best_similarity_changed_recall_mean,lattice_gain_vs_exact_mean,lattice_gain_vs_similarity_mean,lattice_wins_vs_exact,lattice_wins_vs_similarity,lattice_ties_vs_similarity
+confirm_top_sample5k_clean_background,semantic_all,78,1.0,0.0,0.8410118889098348,1.0,0.15918843160298554,78,39,39
+confirm_top_sample5k_clean_background,parent,27,1.0,0.0,0.8894696089818042,1.0,0.11110909472189959,27,12,15
+confirm_top_sample5k_clean_background,stereo,24,1.0,0.0,1.0,1.0,0.0,24,0,24
+confirm_top_sample5k_clean_background,tautomer,27,1.0,0.0,0.6512314034243859,1.0,0.34876859657561415,27,27,0
+changed_only_sample5k_clean_background,semantic_all,2,1.0,0.0,1.0,1.0,0.0,2,0,2
+changed_only_sample5k_clean_background,stereo,2,1.0,0.0,1.0,1.0,0.0,2,0,2

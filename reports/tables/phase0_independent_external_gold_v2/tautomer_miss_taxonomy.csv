@@ -1,0 +1,4 @@
+miss_category,n,sample_fraction,sample_n,total_misses
+scaffold_or_connectivity_shift,73,0.73,100,145
+rdkit_tautomer_rule_coverage_or_ambiguous,20,0.2,100,145
+charge_protonation_interaction,7,0.07,100,145

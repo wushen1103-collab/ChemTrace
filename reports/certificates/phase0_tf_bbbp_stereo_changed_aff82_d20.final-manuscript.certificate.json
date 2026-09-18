@@ -1,0 +1,513 @@
+{
+  "analysis_version": "paper-release",
+  "artifact_name": "phase0_tf_bbbp_stereo_changed_aff82_d20",
+  "artifact_root": "artifacts/phase0_tf_bbbp_stereo_changed_aff82_d20",
+  "corpora": [
+    {
+      "bytes": 2100300,
+      "condition": "clean",
+      "dose": null,
+      "records": 50000,
+      "relation": "clean",
+      "sha256": "430e40d6b031d20c1df22c7b0ce23da1231682643e8402548d7b8e40ea98b5dc"
+    },
+    {
+      "bytes": 2100308,
+      "condition": "decoy_20x",
+      "dose": 20,
+      "records": 50000,
+      "relation": "decoy",
+      "sha256": "282ac2ccf3135605d30d443920f8aa40a32b102fe5fd96865e38f920bb38ec82"
+    },
+    {
+      "bytes": 2100308,
+      "condition": "exact_20x",
+      "dose": 20,
+      "records": 50000,
+      "relation": "exact",
+      "sha256": "21a83c4ff34f68af0d4c8a7f8119f7f9608771fd5baffafeec9be826e1952ac6"
+    },
+    {
+      "bytes": 2100300,
+      "condition": "random_20x",
+      "dose": 20,
+      "records": 50000,
+      "relation": "random",
+      "sha256": "db1702b1fc5a276c315259c9179f8d81fc28a6f1aa94d9c10438da1ca68dbec9"
+    },
+    {
+      "bytes": 2100300,
+      "condition": "stereo_20x",
+      "dose": 20,
+      "records": 50000,
+      "relation": "stereo",
+      "sha256": "0a39b56a189fc3de61f9f7322ddbf7d535ff5edeba1905f794cc3f0428bc9903"
+    }
+  ],
+  "effects": [
+    {
+      "boot_ci_high": 0.1119911798118846,
+      "boot_ci_low": -0.0167982740228492,
+      "boot_positive_rate": 0.929,
+      "dose": 20,
+      "experiment": "phase0_tf_bbbp_stereo_changed_aff82_d20",
+      "n_seeds": 12,
+      "point_mean_minus_decoy": 0.0500471643455678,
+      "relation": "exact",
+      "support_bucket": "directional_positive",
+      "task": "bbbp"
+    },
+    {
+      "boot_ci_high": 0.057272523379958,
+      "boot_ci_low": -0.0417329462785472,
+      "boot_positive_rate": 0.75625,
+      "dose": 20,
+      "experiment": "phase0_tf_bbbp_stereo_changed_aff82_d20",
+      "n_seeds": 12,
+      "point_mean_minus_decoy": 0.0157217065839866,
+      "relation": "random",
+      "support_bucket": "weak_positive",
+      "task": "bbbp"
+    },
+    {
+      "boot_ci_high": 0.0615984153888738,
+      "boot_ci_low": -0.0375143086806904,
+      "boot_positive_rate": 0.67825,
+      "dose": 20,
+      "experiment": "phase0_tf_bbbp_stereo_changed_aff82_d20",
+      "n_seeds": 12,
+      "point_mean_minus_decoy": 0.0127419220295293,
+      "relation": "stereo",
+      "support_bucket": "weak_positive",
+      "task": "bbbp"
+    }
+  ],
+  "generated_at_utc": "2026-09-10T17:49:00+00:00",
+  "manifests": [
+    {
+      "condition": "decoy_20x",
+      "dose": 20,
+      "max_abs_length_delta": 1,
+      "mean_length_delta": 0.004878048780487805,
+      "records": 1640,
+      "relation": "decoy",
+      "sha256": "3487344abc6d070062ddefeab704749817c4ba0af0eb346177ff7792092ab700",
+      "tasks": [
+        "bbbp"
+      ],
+      "unique_injected": 1482,
+      "unique_samples": 82
+    },
+    {
+      "condition": "exact_20x",
+      "dose": 20,
+      "max_abs_length_delta": 1,
+      "mean_length_delta": 0.004878048780487805,
+      "records": 1640,
+      "relation": "exact",
+      "sha256": "70a263bf1214ab57345b85849ced606b5e800d167198d54e5a55a92958627685",
+      "tasks": [
+        "bbbp"
+      ],
+      "unique_injected": 82,
+      "unique_samples": 82
+    },
+    {
+      "condition": "random_20x",
+      "dose": 20,
+      "max_abs_length_delta": 0,
+      "mean_length_delta": 0.0,
+      "records": 1640,
+      "relation": "random",
+      "sha256": "93cee6fd6b48720fcca7299e61be523c00f54adb4e7aef1fd165a9c6268091ed",
+      "tasks": [
+        "bbbp"
+      ],
+      "unique_injected": 1630,
+      "unique_samples": 82
+    },
+    {
+      "condition": "stereo_20x",
+      "dose": 20,
+      "max_abs_length_delta": 0,
+      "mean_length_delta": 0.0,
+      "records": 1640,
+      "relation": "stereo",
+      "sha256": "a2130f3cfc084a6bba84bdad38d69169c10ef8572c3502f68c96fbcac28f7593",
+      "tasks": [
+        "bbbp"
+      ],
+      "unique_injected": 82,
+      "unique_samples": 82
+    }
+  ],
+  "prepare_meta": {
+    "affected_filter_relation": "stereo",
+    "clean_sha256": "57eab2139d80ea117aaa84081f80f3d9a4d66e839f749a0559995c2a4b11ee12",
+    "corpus_size": 50000,
+    "doses": [
+      20
+    ],
+    "max_affected_len": 158,
+    "n_affected": 82,
+    "relations": [
+      "exact",
+      "random",
+      "stereo",
+      "decoy"
+    ],
+    "seed": 20260824,
+    "tasks": [
+      "bbbp"
+    ]
+  },
+  "repository_commit": "0000000000000000000000000000000000000000",
+  "retrieval_audit": {
+    "retrieval_clean_baseline": [
+      {
+        "clean_hit_rate": 0.0,
+        "detector": "canonical",
+        "max_clean_matches": 0,
+        "mean_clean_matches": 0.0,
+        "n_queries": 82,
+        "task": "bbbp"
+      },
+      {
+        "clean_hit_rate": 0.2804878048780488,
+        "detector": "parent",
+        "max_clean_matches": 3,
+        "mean_clean_matches": 0.3292682926829268,
+        "n_queries": 82,
+        "task": "bbbp"
+      },
+      {
+        "clean_hit_rate": 0.0,
+        "detector": "raw",
+        "max_clean_matches": 0,
+        "mean_clean_matches": 0.0,
+        "n_queries": 82,
+        "task": "bbbp"
+      },
+      {
+        "clean_hit_rate": 0.6951219512195121,
+        "detector": "scaffold",
+        "max_clean_matches": 90,
+        "mean_clean_matches": 9.24390243902439,
+        "n_queries": 82,
+        "task": "bbbp"
+      },
+      {
+        "clean_hit_rate": 0.2682926829268293,
+        "detector": "stereo",
+        "max_clean_matches": 4,
+        "mean_clean_matches": 0.4878048780487805,
+        "n_queries": 82,
+        "task": "bbbp"
+      },
+      {
+        "clean_hit_rate": 0.0609756097560975,
+        "detector": "tautomer",
+        "max_clean_matches": 4,
+        "mean_clean_matches": 0.1219512195121951,
+        "n_queries": 82,
+        "task": "bbbp"
+      }
+    ],
+    "retrieval_summary_by_relation": [
+      {
+        "detector": "scaffold",
+        "dose": 20,
+        "injection_relation": "decoy",
+        "mean_changed_only_recall": 0.0121951219512195,
+        "mean_clean_hit_rate": 0.6951219512195121,
+        "mean_incremental_hit_rate": 0.0,
+        "mean_injection_recall": 0.0121951219512195,
+        "tasks": 1,
+        "total_changed_queries": 82
+      },
+      {
+        "detector": "canonical",
+        "dose": 20,
+        "injection_relation": "decoy",
+        "mean_changed_only_recall": 0.0,
+        "mean_clean_hit_rate": 0.0,
+        "mean_incremental_hit_rate": 0.0,
+        "mean_injection_recall": 0.0,
+        "tasks": 1,
+        "total_changed_queries": 82
+      },
+      {
+        "detector": "parent",
+        "dose": 20,
+        "injection_relation": "decoy",
+        "mean_changed_only_recall": 0.0,
+        "mean_clean_hit_rate": 0.2804878048780488,
+        "mean_incremental_hit_rate": 0.0,
+        "mean_injection_recall": 0.0,
+        "tasks": 1,
+        "total_changed_queries": 82
+      },
+      {
+        "detector": "raw",
+        "dose": 20,
+        "injection_relation": "decoy",
+        "mean_changed_only_recall": 0.0,
+        "mean_clean_hit_rate": 0.0,
+        "mean_incremental_hit_rate": 0.0,
+        "mean_injection_recall": 0.0,
+        "tasks": 1,
+        "total_changed_queries": 82
+      },
+      {
+        "detector": "stereo",
+        "dose": 20,
+        "injection_relation": "decoy",
+        "mean_changed_only_recall": 0.0,
+        "mean_clean_hit_rate": 0.2682926829268293,
+        "mean_incremental_hit_rate": 0.0,
+        "mean_injection_recall": 0.0,
+        "tasks": 1,
+        "total_changed_queries": 82
+      },
+      {
+        "detector": "tautomer",
+        "dose": 20,
+        "injection_relation": "decoy",
+        "mean_changed_only_recall": 0.0,
+        "mean_clean_hit_rate": 0.0609756097560975,
+        "mean_incremental_hit_rate": 0.0,
+        "mean_injection_recall": 0.0,
+        "tasks": 1,
+        "total_changed_queries": 82
+      },
+      {
+        "detector": "canonical",
+        "dose": 20,
+        "injection_relation": "exact",
+        "mean_changed_only_recall": null,
+        "mean_clean_hit_rate": 0.0,
+        "mean_incremental_hit_rate": 1.0,
+        "mean_injection_recall": 1.0,
+        "tasks": 1,
+        "total_changed_queries": 0
+      },
+      {
+        "detector": "parent",
+        "dose": 20,
+        "injection_relation": "exact",
+        "mean_changed_only_recall": null,
+        "mean_clean_hit_rate": 0.2804878048780488,
+        "mean_incremental_hit_rate": 0.7195121951219512,
+        "mean_injection_recall": 1.0,
+        "tasks": 1,
+        "total_changed_queries": 0
+      },
+      {
+        "detector": "scaffold",
+        "dose": 20,
+        "injection_relation": "exact",
+        "mean_changed_only_recall": null,
+        "mean_clean_hit_rate": 0.6951219512195121,
+        "mean_incremental_hit_rate": 0.3048780487804878,
+        "mean_injection_recall": 1.0,
+        "tasks": 1,
+        "total_changed_queries": 0
+      },
+      {
+        "detector": "stereo",
+        "dose": 20,
+        "injection_relation": "exact",
+        "mean_changed_only_recall": null,
+        "mean_clean_hit_rate": 0.2682926829268293,
+        "mean_incremental_hit_rate": 0.7317073170731707,
+        "mean_injection_recall": 1.0,
+        "tasks": 1,
+        "total_changed_queries": 0
+      },
+      {
+        "detector": "tautomer",
+        "dose": 20,
+        "injection_relation": "exact",
+        "mean_changed_only_recall": null,
+        "mean_clean_hit_rate": 0.0609756097560975,
+        "mean_incremental_hit_rate": 0.9390243902439024,
+        "mean_injection_recall": 1.0,
+        "tasks": 1,
+        "total_changed_queries": 0
+      },
+      {
+        "detector": "raw",
+        "dose": 20,
+        "injection_relation": "exact",
+        "mean_changed_only_recall": null,
+        "mean_clean_hit_rate": 0.0,
+        "mean_incremental_hit_rate": 0.0121951219512195,
+        "mean_injection_recall": 0.0121951219512195,
+        "tasks": 1,
+        "total_changed_queries": 0
+      },
+      {
+        "detector": "canonical",
+        "dose": 20,
+        "injection_relation": "random",
+        "mean_changed_only_recall": null,
+        "mean_clean_hit_rate": 0.0,
+        "mean_incremental_hit_rate": 1.0,
+        "mean_injection_recall": 1.0,
+        "tasks": 1,
+        "total_changed_queries": 0
+      },
+      {
+        "detector": "parent",
+        "dose": 20,
+        "injection_relation": "random",
+        "mean_changed_only_recall": null,
+        "mean_clean_hit_rate": 0.2804878048780488,
+        "mean_incremental_hit_rate": 0.7195121951219512,
+        "mean_injection_recall": 1.0,
+        "tasks": 1,
+        "total_changed_queries": 0
+      },
+      {
+        "detector": "scaffold",
+        "dose": 20,
+        "injection_relation": "random",
+        "mean_changed_only_recall": null,
+        "mean_clean_hit_rate": 0.6951219512195121,
+        "mean_incremental_hit_rate": 0.3048780487804878,
+        "mean_injection_recall": 1.0,
+        "tasks": 1,
+        "total_changed_queries": 0
+      },
+      {
+        "detector": "stereo",
+        "dose": 20,
+        "injection_relation": "random",
+        "mean_changed_only_recall": null,
+        "mean_clean_hit_rate": 0.2682926829268293,
+        "mean_incremental_hit_rate": 0.7317073170731707,
+        "mean_injection_recall": 1.0,
+        "tasks": 1,
+        "total_changed_queries": 0
+      },
+      {
+        "detector": "tautomer",
+        "dose": 20,
+        "injection_relation": "random",
+        "mean_changed_only_recall": null,
+        "mean_clean_hit_rate": 0.0609756097560975,
+        "mean_incremental_hit_rate": 0.9390243902439024,
+        "mean_injection_recall": 1.0,
+        "tasks": 1,
+        "total_changed_queries": 0
+      },
+      {
+        "detector": "raw",
+        "dose": 20,
+        "injection_relation": "random",
+        "mean_changed_only_recall": null,
+        "mean_clean_hit_rate": 0.0,
+        "mean_incremental_hit_rate": 0.0,
+        "mean_injection_recall": 0.0,
+        "tasks": 1,
+        "total_changed_queries": 0
+      },
+      {
+        "detector": "stereo",
+        "dose": 20,
+        "injection_relation": "stereo",
+        "mean_changed_only_recall": 1.0,
+        "mean_clean_hit_rate": 0.2682926829268293,
+        "mean_incremental_hit_rate": 0.7317073170731707,
+        "mean_injection_recall": 1.0,
+        "tasks": 1,
+        "total_changed_queries": 82
+      },
+      {
+        "detector": "scaffold",
+        "dose": 20,
+        "injection_relation": "stereo",
+        "mean_changed_only_recall": 0.9878048780487804,
+        "mean_clean_hit_rate": 0.6951219512195121,
+        "mean_incremental_hit_rate": 0.2926829268292683,
+        "mean_injection_recall": 0.9878048780487804,
+        "tasks": 1,
+        "total_changed_queries": 82
+      },
+      {
+        "detector": "tautomer",
+        "dose": 20,
+        "injection_relation": "stereo",
+        "mean_changed_only_recall": 0.073170731707317,
+        "mean_clean_hit_rate": 0.0609756097560975,
+        "mean_incremental_hit_rate": 0.048780487804878,
+        "mean_injection_recall": 0.073170731707317,
+        "tasks": 1,
+        "total_changed_queries": 82
+      },
+      {
+        "detector": "parent",
+        "dose": 20,
+        "injection_relation": "stereo",
+        "mean_changed_only_recall": 0.0121951219512195,
+        "mean_clean_hit_rate": 0.2804878048780488,
+        "mean_incremental_hit_rate": 0.0121951219512195,
+        "mean_injection_recall": 0.0121951219512195,
+        "tasks": 1,
+        "total_changed_queries": 82
+      },
+      {
+        "detector": "canonical",
+        "dose": 20,
+        "injection_relation": "stereo",
+        "mean_changed_only_recall": 0.0,
+        "mean_clean_hit_rate": 0.0,
+        "mean_incremental_hit_rate": 0.0,
+        "mean_injection_recall": 0.0,
+        "tasks": 1,
+        "total_changed_queries": 82
+      },
+      {
+        "detector": "raw",
+        "dose": 20,
+        "injection_relation": "stereo",
+        "mean_changed_only_recall": 0.0,
+        "mean_clean_hit_rate": 0.0,
+        "mean_incremental_hit_rate": 0.0,
+        "mean_injection_recall": 0.0,
+        "tasks": 1,
+        "total_changed_queries": 82
+      }
+    ]
+  },
+  "risk_statement": {
+    "effect_level": "directional_positive_not_ci_confirmed",
+    "recommended_claim": "Use as an audit/provenance certificate. Treat downstream inflation as conditional unless a relation/task has a cluster bootstrap interval above zero.",
+    "retrieval_level": "semantic_lattice_recovers_changed_variants"
+  },
+  "schema": "chemtrace.phase0.certificate.v2",
+  "schema_sha256": "8367226b13270a94704b2bd6171776f44cc36c4d2fa83d62befebe3f31d8a2a2",
+  "schema_version": "2.0.0",
+  "splits": [
+    {
+      "affected": 82,
+      "label_counts_affected": {
+        "0": 37,
+        "1": 45
+      },
+      "label_counts_all": {
+        "0": 479,
+        "1": 1560
+      },
+      "records": 2039,
+      "sha256": "701d832ce09b23c1c89d6d9d9b18770e74cdc72c608beaa8cf263077d80297e8",
+      "split_counts": {
+        "test": 204,
+        "train": 1575,
+        "val": 260
+      },
+      "task": "bbbp",
+      "task_type": "classification"
+    }
+  ]
+}

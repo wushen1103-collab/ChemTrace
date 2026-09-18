@@ -1,0 +1,10 @@
+criterion,status,evidence,remaining_gap
+external_methods_8_to_12,pass,"12 external/near-external baseline routes; groups={'recent_same_task': 6, 'direct_mechanism': 4, 'classic': 2}",None for narrowed provenance benchmark; official-paper reruns can still strengthen broad claims.
+classic_2_recent_4_to_6_direct_2_to_4,pass,"classic=2, recent_same_task=6, direct_mechanism=4","Keep DataSAIL/LoHi/Chemical-Science/TDC-Polaris rows labelled adapted_rerun, not original-paper numbers."
+baseline_grouped_by_route,pass,"method_group column present for classic, recent_same_task, direct_mechanism, and proposed.",None.
+public_datasets_at_least_2_to_4,pass,9 public molecular tasks in the main focused artifact.,"Can add TDC/Polaris suite later, but current task count clears the narrow benchmark requirement."
+same_protocol_same_split,pass,"All methods rerun against the same artifact roots, phase0_affected.csv, manifests, clean corpus, doses, and repeat seeds.",None for same-protocol detector audit.
+special_scenarios,pass,all_semantic_changed; cold_start_scaffold_absent; high_background_similarity_ge_0_70; long_tail_scaffold_count_le_1; ood_low_similarity_lt_0_70; warm_start_scaffold_present,Missing modality is not applicable to single-modality molecular strings; state this explicitly in the paper.
+mean_std_at_least_5_seeds,pass,5 clean-background repeat seeds; semantic gain vs best external adjusted=0.0598 +/- 0.0040.,Downstream performance rows with 4 seeds must remain secondary; main provenance table satisfies this requirement.
+original_vs_rerun_flags,pass,"source_type values=['adapted_rerun', 'self_rerun']",None; do not mix official reported numbers without source_type=official_reported.
+true_sota_comparison,narrow_pass,ChemTrace gain vs best external adjusted=0.0598 +/- 0.0040; gain vs best external recall=0.0261 +/- 0.0000; relation-typed external baselines=0.,"The broad claim should remain narrowed to provenance/certificate SOTA, not universal contamination detection or downstream performance."

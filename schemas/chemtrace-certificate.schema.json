@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chemtrace.org/schemas/chemtrace-certificate-v2.schema.json",
+  "title": "ChemTrace phase-0 provenance certificate",
+  "description": "Version 2.0.0 schema for a corpus-bound, relation-typed ChemTrace audit certificate.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "schema_version",
+    "schema_sha256",
+    "repository_commit",
+    "analysis_version",
+    "generated_at_utc",
+    "artifact_root",
+    "artifact_name",
+    "prepare_meta",
+    "splits",
+    "corpora",
+    "manifests",
+    "effects",
+    "retrieval_audit",
+    "risk_statement"
+  ],
+  "properties": {
+    "schema": {"const": "chemtrace.phase0.certificate.v2"},
+    "schema_version": {"const": "2.0.0"},
+    "schema_sha256": {"$ref": "#/$defs/sha256"},
+    "repository_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "analysis_version": {"type": "string", "minLength": 1},
+    "generated_at_utc": {"type": "string", "format": "date-time"},
+    "artifact_root": {"type": "string", "minLength": 1},
+    "artifact_name": {"type": "string", "minLength": 1},
+    "prepare_meta": {"type": "object"},
+    "splits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["task", "records", "sha256", "split_counts", "affected"],
+        "properties": {
+          "task": {"type": "string"},
+          "records": {"type": "integer", "minimum": 0},
+          "sha256": {"$ref": "#/$defs/sha256"},
+          "task_type": {"type": ["string", "null"]},
+          "split_counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+          "affected": {"type": "integer", "minimum": 0},
+          "label_counts_all": {"type": "object"},
+          "label_counts_affected": {"type": "object"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "corpora": {"type": "array", "items": {"$ref": "#/$defs/hashedRecord"}},
+    "manifests": {"type": "array", "items": {"$ref": "#/$defs/hashedRecord"}},
+    "effects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["task", "relation", "dose", "n_seeds", "point_mean_minus_decoy", "boot_ci_low", "boot_ci_high", "support_bucket"],
+        "properties": {
+          "experiment": {"type": ["string", "null"]},
+          "task": {"type": "string"},
+          "relation": {"enum": ["exact", "random", "parent", "stereo", "tautomer", "decoy"]},
+          "dose": {"type": ["integer", "number", "null"]},
+          "n_seeds": {"type": ["integer", "number"]},
+          "point_mean_minus_decoy": {"type": ["number", "null"]},
+          "point_std_over_seeds": {"type": ["number", "null"]},
+          "boot_ci_low": {"type": ["number", "null"]},
+          "boot_ci_high": {"type": ["number", "null"]},
+          "boot_positive_rate": {"type": ["number", "null"]},
+          "support_bucket": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "retrieval_audit": {"type": "object"},
+    "risk_statement": {
+      "type": "object",
+      "required": ["effect_level", "retrieval_level", "recommended_claim"],
+      "properties": {
+        "effect_level": {"type": "string"},
+        "retrieval_level": {"type": "string"},
+        "recommended_claim": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "hashedRecord": {
+      "type": "object",
+      "required": ["condition", "relation", "dose", "records", "sha256"],
+      "properties": {
+        "condition": {"type": "string"},
+        "relation": {"type": "string"},
+        "dose": {"type": ["integer", "null"]},
+        "records": {"type": "integer", "minimum": 0},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "bytes": {"type": "integer", "minimum": 0},
+        "tasks": {"type": "array", "items": {"type": "string"}},
+        "unique_samples": {"type": "integer", "minimum": 0},
+        "unique_injected": {"type": "integer", "minimum": 0},
+        "mean_length_delta": {"type": ["number", "null"]},
+        "max_abs_length_delta": {"type": ["integer", "number", "null"]}
+      },
+      "additionalProperties": false
+    }
+  }
+}
