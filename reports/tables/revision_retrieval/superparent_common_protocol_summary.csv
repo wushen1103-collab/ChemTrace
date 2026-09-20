@@ -1,0 +1,2 @@
+method,repeat_seeds,cells_per_repeat,changed_cells_per_repeat,changed_only_recall_mean,changed_only_recall_sd,clean_background_hit_rate_mean,clean_background_hit_rate_sd,decoy_false_positive_proxy_mean,decoy_false_positive_proxy_sd,background_and_decoy_adjusted_mean,background_and_decoy_adjusted_sd
+rdkit_superparent,5,81,78,1.0,0.0,0.013194444444444443,0.01001842919878716,0.0,0.0,0.986298076923077,0.010403753398740527

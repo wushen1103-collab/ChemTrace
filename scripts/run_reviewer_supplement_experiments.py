@@ -973,6 +973,7 @@ def chembl_parent_gold(db_path: Path, limit: int) -> list[PairRow]:
               and h.molregno != h.parent_molregno
               and c.canonical_smiles is not null
               and p.canonical_smiles is not null
+            order by h.molregno, h.parent_molregno
             limit ?
             """,
             (limit * 4,),

@@ -58,7 +58,7 @@ Outputs are written under `reproduced/`. The full common-protocol audit is CPU-i
 For a short installation and interface smoke test, run `python scripts/reproduce_retrieval.py --quick`.
 Quick-mode outputs use one task and reduced sampling parameters and are not the paper estimates.
 
-The collapsed-standardization reference and route-abstention audit use the same unpacked inputs and released pair tables:
+The collapsed-standardization reference and route-abstention audit use the same unpacked inputs and released pair tables. The command also evaluates SuperParent on the Table-2 clean-background/decoy grid:
 
 ```bash
 python scripts/audit_revision_retrieval.py --workers 8

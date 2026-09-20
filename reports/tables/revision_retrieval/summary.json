@@ -3,5 +3,19 @@
   "n_unique_evaluated_strings": 82715,
   "superparent_preserves_relation_type": false,
   "controlled_changed_macro_recall": 1.0,
-  "controlled_changed_cells": 78
+  "controlled_changed_cells": 78,
+  "common_protocol": {
+    "method": "rdkit_superparent",
+    "repeat_seeds": 5,
+    "cells_per_repeat": 81,
+    "changed_cells_per_repeat": 78,
+    "changed_only_recall_mean": 1.0,
+    "changed_only_recall_sd": 0.0,
+    "clean_background_hit_rate_mean": 0.013194444444444443,
+    "clean_background_hit_rate_sd": 0.01001842919878716,
+    "decoy_false_positive_proxy_mean": 0.0,
+    "decoy_false_positive_proxy_sd": 0.0,
+    "background_and_decoy_adjusted_mean": 0.986298076923077,
+    "background_and_decoy_adjusted_sd": 0.010403753398740527
+  }
 }

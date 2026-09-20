@@ -25,6 +25,8 @@ EXPECTED_HASHES = {
     "reports/tables/phase0_reviewer_supplements/normalization_path_stability_summary.csv": "351dc6e76ca99c5f67af18bb9736e81b2abfa55f3e1fea25d24cbce76141562c",
     "reports/tables/phase0_reviewer_supplements/retrieval_scale_benchmark.csv": "33d642c4bc379a80842c30ca0cbc9d6bcc1e42f346d6f8b5a56a06b35d2497a5",
     "reports/tables/phase0_reviewer_supplements/tautomer_miss_taxonomy.csv": "1fe650f81b0d580d4b69428fd6a4472245c8c46511ead3ff79e720dc51618f56",
+    "reports/tables/revision_retrieval/superparent_common_protocol_cells.csv": "a1adb6ae0d1106c1a07a5969223eddd443d811b4997d188212938395e4d1a5d8",
+    "reports/tables/revision_retrieval/superparent_common_protocol_summary.csv": "eeaf47599179ea7ed6bee653c56c707477681a35ea89a3e0cc4f95369336fa1a",
 }
 TEXT_EXTENSIONS = {".csv", ".json", ".jsonl", ".md", ".py", ".sh", ".toml", ".txt", ".yml", ".yaml"}
 PRIVATE_PATTERNS = {
