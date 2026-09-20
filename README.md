@@ -8,7 +8,8 @@ This repository contains the implementation and compact reproducibility package 
 - controlled corpus-intervention and model-training code;
 - exact fixed inputs for the paper's retrieval experiments;
 - scripts for the common-protocol audit, bootstrap analyses, and provenance certificates;
-- compact result tables used to check the reported claims.
+- compact result tables used to check the reported claims;
+- a machine-verified SHA-256 manifest for all released derived tables.
 
 Neural checkpoints, per-epoch logs, and redundant prediction caches are intentionally excluded. They are large and can be regenerated with the included code. The fixed retrieval inputs are distributed as a 22 MB compressed archive.
 
@@ -38,7 +39,7 @@ python scripts/check_release.py
 python -m pytest -q
 ```
 
-The first command checks the fixed-input archive, principal result files, numerical identities, and the absence of machine-specific paths in public text files.
+The first command checks the fixed-input archive, principal result files, every entry in `RESULT_CHECKSUMS.txt`, numerical identities, and the absence of machine-specific paths in public text files.
 
 ## Reproduce the retrieval results
 
@@ -96,6 +97,7 @@ The MoleculeNet task files are downloaded from the URLs declared in `chemtrace/d
 | `scripts/` | command-line experiment and audit entry points |
 | `data/paper_inputs.tgz` | fixed retrieval inputs, splits, corpora, and intervention manifests |
 | `reports/tables/` | compact paper-facing and validation outputs |
+| `RESULT_CHECKSUMS.txt` | SHA-256 manifest for released derived tables |
 | `reports/certificates/` | schema-validated provenance certificate example |
 | `schemas/` | JSON Schema for ChemTrace certificates |
 | `tests/` | normalization and numerical-contract tests |

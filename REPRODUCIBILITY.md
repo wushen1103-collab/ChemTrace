@@ -16,7 +16,7 @@ The release separates three evidence levels:
 | Figure 2, changed-only retrieval | `data/paper_inputs.tgz`; `reports/tables/phase0_retrieval_baseline_confirm_top_sample5k/` | `scripts/audit_retrieval_baselines.py`; `scripts/bootstrap_retrieval_sota.py` |
 | Figure 3, typed-negative stress test | `reports/tables/phase0_reviewer_supplements/hard_negative_pair_bank.csv` and associated score/metric tables | `scripts/run_reviewer_supplement_experiments.py` |
 | Table 2, 13-route common protocol | fixed paper inputs; `reports/tables/phase0_modern_sota_baselines/` | `scripts/audit_modern_sota_baselines.py` |
-| Figure 4, downstream effects | `reports/tables/phase0_effect_models_completed/` | `scripts/fit_phase0_effect_models.py`; `scripts/bootstrap_phase0_effects.py` |
+| Figure 4, downstream effects | `reports/tables/phase0_effect_models_completed/`; `reports/tables/revision_sensitivities/primary_interval_bootstrap.csv` | `scripts/fit_phase0_effect_models.py`; `scripts/bootstrap_phase0_effects.py` |
 | Global and changed-only downstream sensitivity | `reports/tables/revision_sensitivities/` | `scripts/analyze_revision_sensitivities.py` after prediction regeneration |
 | Appendix robustness | low-resource, GRU, and GIN effect summaries under `reports/tables/` | model launchers plus the effect scripts above |
 | SuperParent common-protocol and route-abstention checks | `reports/tables/revision_retrieval/` | `scripts/audit_revision_retrieval.py` |
@@ -24,6 +24,8 @@ The release separates three evidence levels:
 | Provenance certificate | `schemas/chemtrace-certificate.schema.json`; `reports/certificates/` | `scripts/generate_phase0_certificate.py` |
 
 The released certificate excerpt preserves the corpus, manifest, split, and result digests but replaces the original internal repository commit with forty zeroes. New certificates generated from a public checkout record that checkout's commit.
+
+`RESULT_CHECKSUMS.txt` records the SHA-256 digest of every released derived table. Run `python scripts/check_release.py` to verify that manifest together with the pinned input files, numerical contracts, certificate schema, and privacy checks.
 
 ## Fixed input archive
 

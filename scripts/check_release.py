@@ -27,7 +27,9 @@ EXPECTED_HASHES = {
     "reports/tables/phase0_reviewer_supplements/tautomer_miss_taxonomy.csv": "1fe650f81b0d580d4b69428fd6a4472245c8c46511ead3ff79e720dc51618f56",
     "reports/tables/revision_retrieval/superparent_common_protocol_cells.csv": "a1adb6ae0d1106c1a07a5969223eddd443d811b4997d188212938395e4d1a5d8",
     "reports/tables/revision_retrieval/superparent_common_protocol_summary.csv": "eeaf47599179ea7ed6bee653c56c707477681a35ea89a3e0cc4f95369336fa1a",
+    "reports/tables/revision_sensitivities/primary_interval_bootstrap.csv": "725ff53e23607b34591f9ade1795e050a99f02feeb7bc8cd895c637eee77e62d",
 }
+RESULT_MANIFEST = "RESULT_CHECKSUMS.txt"
 TEXT_EXTENSIONS = {".csv", ".json", ".jsonl", ".md", ".py", ".sh", ".toml", ".txt", ".yml", ".yaml"}
 PRIVATE_PATTERNS = {
     "Unix home path": re.compile(r"/home/[A-Za-z0-9_.-]+/"),
@@ -64,6 +66,56 @@ def check_hashes(errors: list[str]) -> None:
         observed = sha256(path)
         if observed != expected:
             errors.append(f"SHA-256 mismatch for {relative}: {observed}")
+
+
+def check_result_manifest(errors: list[str]) -> int:
+    """Verify every derived result listed in the release checksum manifest."""
+    manifest_path = ROOT / RESULT_MANIFEST
+    if not manifest_path.is_file():
+        errors.append(f"Missing release file: {RESULT_MANIFEST}")
+        return 0
+
+    root = ROOT.resolve()
+    seen: set[str] = set()
+    manifest_lines = manifest_path.read_text(encoding="utf-8").splitlines()
+    for line_number, raw_line in enumerate(manifest_lines, start=1):
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            continue
+        parts = line.split(maxsplit=1)
+        if len(parts) != 2 or re.fullmatch(r"[0-9a-f]{64}", parts[0]) is None:
+            errors.append(f"Malformed {RESULT_MANIFEST} line {line_number}: {raw_line!r}")
+            continue
+        expected, relative = parts
+        if relative in seen:
+            errors.append(f"Duplicate {RESULT_MANIFEST} entry: {relative}")
+            continue
+        seen.add(relative)
+
+        candidate = (ROOT / relative).resolve()
+        try:
+            candidate.relative_to(root)
+        except ValueError:
+            errors.append(f"Path escapes repository in {RESULT_MANIFEST}: {relative}")
+            continue
+        if not candidate.is_file():
+            errors.append(f"Missing derived result listed in {RESULT_MANIFEST}: {relative}")
+            continue
+        observed = sha256(candidate)
+        if observed != expected:
+            errors.append(f"SHA-256 mismatch for derived result {relative}: {observed}")
+
+    if not seen:
+        errors.append(f"No derived results listed in {RESULT_MANIFEST}")
+    result_root = ROOT / "reports/tables"
+    released_results = {
+        path.relative_to(ROOT).as_posix()
+        for path in result_root.rglob("*")
+        if path.is_file()
+    }
+    for relative in sorted(released_results - seen):
+        errors.append(f"Derived result missing from {RESULT_MANIFEST}: {relative}")
+    return len(seen)
 
 
 def check_numerical_contracts(errors: list[str]) -> None:
@@ -147,6 +199,7 @@ def check_privacy(errors: list[str]) -> None:
 def main() -> None:
     errors: list[str] = []
     check_hashes(errors)
+    result_manifest_count = check_result_manifest(errors)
     check_numerical_contracts(errors)
     check_certificate(errors)
     check_privacy(errors)
@@ -155,7 +208,11 @@ def main() -> None:
         for error in errors:
             print(f"- {error}", file=sys.stderr)
         raise SystemExit(1)
-    print(f"Release check passed: {len(EXPECTED_HASHES)} hashes, numerical contracts, schema, and privacy scan.")
+    print(
+        "Release check passed: "
+        f"{len(EXPECTED_HASHES)} pinned hashes, {result_manifest_count} derived-result checksums, "
+        "numerical contracts, schema, and privacy scan."
+    )
 
 
 if __name__ == "__main__":
