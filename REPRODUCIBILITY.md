@@ -17,7 +17,9 @@ The release separates three evidence levels:
 | Figure 3, typed-negative stress test | `reports/tables/phase0_reviewer_supplements/hard_negative_pair_bank.csv` and associated score/metric tables | `scripts/run_reviewer_supplement_experiments.py` |
 | Table 2, 13-route common protocol | fixed paper inputs; `reports/tables/phase0_modern_sota_baselines/` | `scripts/audit_modern_sota_baselines.py` |
 | Figure 4, downstream effects | `reports/tables/phase0_effect_models_completed/` | `scripts/fit_phase0_effect_models.py`; `scripts/bootstrap_phase0_effects.py` |
+| Global and changed-only downstream sensitivity | `reports/tables/revision_sensitivities/` | `scripts/analyze_revision_sensitivities.py` after prediction regeneration |
 | Appendix robustness | low-resource, GRU, and GIN effect summaries under `reports/tables/` | model launchers plus the effect scripts above |
+| SuperParent and route-abstention checks | `reports/tables/revision_retrieval/` | `scripts/audit_revision_retrieval.py` |
 | Scaling and proxy audit | selected tables under `reports/tables/phase0_reviewer_supplements/` | `scripts/run_reviewer_supplement_experiments.py` |
 | Provenance certificate | `schemas/chemtrace-certificate.schema.json`; `reports/certificates/` | `scripts/generate_phase0_certificate.py` |
 

@@ -58,6 +58,12 @@ Outputs are written under `reproduced/`. The full common-protocol audit is CPU-i
 For a short installation and interface smoke test, run `python scripts/reproduce_retrieval.py --quick`.
 Quick-mode outputs use one task and reduced sampling parameters and are not the paper estimates.
 
+The collapsed-standardization reference and route-abstention audit use the same unpacked inputs and released pair tables:
+
+```bash
+python scripts/audit_revision_retrieval.py --workers 8
+```
+
 ## Rerun controlled pretraining
 
 The fixed input archive expands to `artifacts/phase0_tf_confirm_top_len158_extra`, which is the default artifact root used by the paper scripts. A single Transformer condition can be rerun with:
@@ -71,6 +77,14 @@ python scripts/phase0_run_one.py \
 ```
 
 Use `python scripts/phase0_run_one.py --help` and `python scripts/phase0_run_graph_one.py --help` for the complete Transformer/GRU and GIN options. Launchers for seed grids are available under `scripts/`.
+
+After regenerating the prediction files, the endpoint-clustered global summary, canonical-changing affected-set sensitivity, and centered-bootstrap dispersion diagnostic are produced with:
+
+```bash
+python scripts/analyze_revision_sensitivities.py --workers 8
+```
+
+The compact outputs used by the paper are released under `reports/tables/revision_sensitivities/`; per-sample prediction caches remain excluded because they can be regenerated and are substantially larger.
 
 The MoleculeNet task files are downloaded from the URLs declared in `chemtrace/datasets.py` when they are not already present. External ChEMBL36, Tautobase, ZINC15, and MoLFormer resources are not vendored; see [THIRD_PARTY_DATA.md](THIRD_PARTY_DATA.md).
 
@@ -90,7 +104,7 @@ The detailed claim-to-artifact map and commands are in [REPRODUCIBILITY.md](REPR
 
 ## Scope
 
-A ChemTrace certificate establishes a relation-typed match to an inspectable record in the audited corpus snapshot. It does not establish historical lineage, prove that a model used the record, or by itself imply downstream performance inflation.
+A ChemTrace certificate establishes a relation-typed match to an inspectable record in the audited corpus snapshot. It does not establish historical lineage, prove that a model used the record, or by itself imply downstream performance inflation. The released relation family contains four atomic routes; arbitrary compositions require explicit path-typed extensions.
 
 ## License
 

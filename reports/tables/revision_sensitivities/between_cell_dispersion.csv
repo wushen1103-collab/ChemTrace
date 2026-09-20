@@ -1,0 +1,2 @@
+n_cells,observed_between_cell_variance,raw_bootstrap_variance_ci_low,raw_bootstrap_variance_ci_high,centered_null_variance_mean,centered_bootstrap_p_value
+51,0.0002782107964039749,0.0005349072513578777,0.0016263943523370696,0.000697349982948065,0.9985003749062734

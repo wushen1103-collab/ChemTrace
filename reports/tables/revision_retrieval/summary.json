@@ -1,0 +1,7 @@
+{
+  "rdkit_version": "2026.03.5",
+  "n_unique_evaluated_strings": 82715,
+  "superparent_preserves_relation_type": false,
+  "controlled_changed_macro_recall": 1.0,
+  "controlled_changed_cells": 78
+}

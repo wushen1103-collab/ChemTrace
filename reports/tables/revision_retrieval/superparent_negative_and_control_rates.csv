@@ -1,0 +1,4 @@
+scope,support,superparent_calls,superparent_call_rate
+conditional_hard_negatives,3948,85,0.021529888551165145
+registry_negatives,500,0,0.0
+typed_positive_controls,432,432,1.0

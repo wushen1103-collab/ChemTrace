@@ -47,9 +47,9 @@ PREVALENCES = [0.001, 0.01, 0.05, 0.10]
 def tautomer_smiles(smiles: str) -> str:
     mol = Chem.MolFromSmiles(smiles) if isinstance(smiles, str) and smiles.strip() else None
     if mol is None:
-        return canonicalize(smiles)
+        return ""
     if len(smiles) > 220 or mol.GetNumHeavyAtoms() > 90:
-        return canonicalize(smiles)
+        return ""
     try:
         enum = rdMolStandardize.TautomerEnumerator()
         enum.SetMaxTautomers(64)
@@ -57,7 +57,7 @@ def tautomer_smiles(smiles: str) -> str:
         taut = enum.Canonicalize(mol)
         return Chem.MolToSmiles(taut, canonical=True, isomericSmiles=True)
     except Exception:
-        return canonicalize(smiles)
+        return ""
 
 
 @dataclass(frozen=True)

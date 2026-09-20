@@ -1,0 +1,5 @@
+scope,support,superparent_detected,superparent_recall
+parent,3000,2999,0.9996666666666667
+stereo,2000,1996,0.998
+tautomer,1675,1536,0.9170149253731343
+non_exact_union,6675,6531,0.9784269662921349

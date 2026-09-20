@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import logging
 
 try:
     from rdkit import Chem, RDLogger
@@ -14,6 +15,9 @@ except Exception:  # pragma: no cover
     AllChem = None
     MurckoScaffold = None
     rdMolStandardize = None
+
+
+LOGGER = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True)
@@ -30,27 +34,36 @@ class NormalizedMol:
 def _mol(smiles: str):
     if Chem is None or not isinstance(smiles, str) or not smiles.strip():
         return None
-    return Chem.MolFromSmiles(smiles)
+    try:
+        return Chem.MolFromSmiles(smiles)
+    except Exception as exc:
+        LOGGER.warning("molecular parsing abstained after %s", type(exc).__name__)
+        return None
 
 
 def canonicalize(smiles: str, isomeric: bool = True) -> str:
     mol = _mol(smiles)
     if mol is None:
         return ""
-    return Chem.MolToSmiles(mol, canonical=True, isomericSmiles=isomeric)
+    try:
+        return Chem.MolToSmiles(mol, canonical=True, isomericSmiles=isomeric)
+    except Exception as exc:
+        LOGGER.warning("canonical normalization abstained after %s", type(exc).__name__)
+        return ""
 
 
 def parent_smiles(smiles: str) -> str:
     mol = _mol(smiles)
     if mol is None or rdMolStandardize is None:
-        return canonicalize(smiles)
+        return ""
     try:
         chooser = rdMolStandardize.LargestFragmentChooser()
         uncharger = rdMolStandardize.Uncharger()
         parent = uncharger.uncharge(chooser.choose(mol))
         return Chem.MolToSmiles(parent, canonical=True, isomericSmiles=True)
-    except Exception:
-        return canonicalize(smiles)
+    except Exception as exc:
+        LOGGER.warning("parent normalization abstained after %s", type(exc).__name__)
+        return ""
 
 
 def stereo_stripped_smiles(smiles: str) -> str:
@@ -60,20 +73,22 @@ def stereo_stripped_smiles(smiles: str) -> str:
     try:
         Chem.RemoveStereochemistry(mol)
         return Chem.MolToSmiles(mol, canonical=True, isomericSmiles=False)
-    except Exception:
-        return canonicalize(smiles, isomeric=False)
+    except Exception as exc:
+        LOGGER.warning("stereo normalization abstained after %s", type(exc).__name__)
+        return ""
 
 
 def tautomer_smiles(smiles: str) -> str:
     mol = _mol(smiles)
     if mol is None or rdMolStandardize is None:
-        return canonicalize(smiles)
+        return ""
     try:
         enum = rdMolStandardize.TautomerEnumerator()
         taut = enum.Canonicalize(mol)
         return Chem.MolToSmiles(taut, canonical=True, isomericSmiles=True)
-    except Exception:
-        return canonicalize(smiles)
+    except Exception as exc:
+        LOGGER.warning("tautomer normalization abstained after %s", type(exc).__name__)
+        return ""
 
 
 def random_smiles(smiles: str, seed: int = 0) -> str:
@@ -82,8 +97,9 @@ def random_smiles(smiles: str, seed: int = 0) -> str:
         return smiles
     try:
         return Chem.MolToSmiles(mol, canonical=False, doRandom=True, isomericSmiles=True)
-    except Exception:
-        return canonicalize(smiles)
+    except Exception as exc:
+        LOGGER.warning("randomized-SMILES control abstained after %s", type(exc).__name__)
+        return ""
 
 
 def scaffold_smiles(smiles: str) -> str:

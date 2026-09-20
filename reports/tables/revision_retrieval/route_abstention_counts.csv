@@ -1,0 +1,5 @@
+route,n_valid_input_strings,n_empty_route_keys,empty_route_key_rate
+exact,82715,0,0.0
+parent,82715,0,0.0
+stereo,82715,0,0.0
+tautomer,82715,0,0.0

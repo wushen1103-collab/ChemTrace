@@ -1,0 +1,7 @@
+{
+  "bootstrap_draws": 4000,
+  "seed": 20260919,
+  "estimand": "label-adjusted affected-minus-control contrast in loss_decoy - loss_injected",
+  "global_resampling": "endpoint clusters with within-cell paired-seed and scaffold-cluster bootstrap",
+  "changed_only_definition": "affected sample is retained when canonical(injected) differs from canonical(original)"
+}
